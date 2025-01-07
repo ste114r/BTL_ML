@@ -40,6 +40,7 @@ def plot_test_results(X, y_pred, models, class_pair):
     class_1, class_2 = class_pair
     w, b = models[class_pair]
 
+
     plt.figure(figsize=(10, 8))
 
     # Vẽ hyperplane
