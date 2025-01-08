@@ -24,13 +24,18 @@ def predict_ovo(X, models):
         votes[:, class_1] += (predictions >= 0).astype(int)
         votes[:, class_2] += (predictions < 0).astype(int)
 
+    # Điều chỉnh bỏ phiếu của các class thiếu số phiếu
+    for i in range(n_classes):
+        if np.sum(votes[:, i]) == 0:
+            votes[:, i] += 1  # Thêm 1 phiếu để tránh trường hợp bỏ trống hoàn toàn
+
     return np.argmax(votes, axis=1)
 
 
 def plot_test_results(X, y_pred, models, class_pair):
     """
     Vẽ kết quả test cho một cặp classes
-    
+
     # Thông số:
     X: dữ liệu test
     y_pred: nhãn dự đoán
@@ -39,7 +44,6 @@ def plot_test_results(X, y_pred, models, class_pair):
     """
     class_1, class_2 = class_pair
     w, b = models[class_pair]
-
 
     plt.figure(figsize=(10, 8))
 
