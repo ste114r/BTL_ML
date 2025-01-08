@@ -30,7 +30,7 @@ def predict_ovo(X, models):
 
 if __name__ == "__main__":
     # Load dữ liệu test
-    test_path = 'C:/Users/Admin/Documents/0TL/ml/BTL2/BTL_ML-master/BTL_ML-master/data/test_clean_standardized.csv'
+    test_path = 'C:/Users/Admin/Documents/0TL/ml/BTL/data/test_clean_standardized.csv'
     test_data = pd.read_csv(test_path)
     X_test = test_data.values
 

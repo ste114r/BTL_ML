@@ -141,7 +141,7 @@ class OVOSVM:
 
 if __name__ == "__main__":
     # Load và kiểm tra dữ liệu training
-    train_path = 'C:/Users/Admin/Documents/0TL/ml/BTL2/BTL_ML-master/BTL_ML-master/data/train_clean_standardized.csv'
+    train_path = 'C:/Users/Admin/Documents/0TL/ml/BTL/data/train_clean_standardized.csv'
     train_data = pd.read_csv(train_path)
 
     print("Phân phối các classes trong tập training:")

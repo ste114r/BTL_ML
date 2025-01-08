@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv('C:/Users/Admin/Documents/0TL/ml/BTL2/BTL_ML-master/BTL_ML-master/data/test_old.csv')
+df = pd.read_csv('C:/Users/Admin/Documents/0TL/ml/BTL/data/test_old.csv')
 # Lọc các cột kiểu số, nhưng bỏ qua cột dạng binary (có giá trị 0 hoặc 1)
 numeric_cols = df.select_dtypes(include=['float64', 'int64']).columns
 
@@ -29,6 +29,6 @@ for col in continuous_cols:
     df_cleaned[col] = df_cleaned[col].apply(lambda x: upper_bound if x > upper_bound else x)
 
 # Xuất ra file CSV mới
-df_cleaned.to_csv('C:/Users/Admin/Documents/0TL/ml/BTL2/BTL_ML-master/BTL_ML-master/data/test_clean.csv', index=False)
+df_cleaned.to_csv('C:/Users/Admin/Documents/0TL/ml/BTL/data/test_clean.csv', index=False)
 
-print("Dữ liệu đã được xử lý và lưu vào file 'test_clean.csv'.")
+print("Dữ liệu đã được xử lý và lưu vào file.")

@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
 # Đọc dữ liệu từ file CSV
-file_path = 'C:/Users/Admin/Documents/0TL/ml/BTL/data/train_old.csv'
+file_path = 'C:/Users/Admin/Documents/0TL/ml/BTL/data/train_clean.csv'
 data = pd.read_csv(file_path)
 
 # Các cột liên tục mà bạn muốn chuẩn hóa
@@ -16,7 +16,7 @@ scaler = StandardScaler()
 data[continuous_columns] = scaler.fit_transform(data[continuous_columns])
 
 # Lưu dữ liệu đã chuẩn hóa vào file mới
-standardized_file_path = 'C:/Users/Admin/Documents/0TL/ml/BTL/data/train_old.csv'
+standardized_file_path = 'C:/Users/Admin/Documents/0TL/ml/BTL/data/train_clean_standardized.csv'
 data.to_csv(standardized_file_path, index=False)
 
 # Hiển thị vài dòng đầu của dữ liệu đã chuẩn hóa
