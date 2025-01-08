@@ -181,4 +181,5 @@ if __name__ == "__main__":
 
     # Lưu model
     np.save('model.npy', model.models)
+    np.save('model.json', model.models)
     print("\nĐã train xong và lưu model!")
