@@ -45,5 +45,5 @@ if __name__ == "__main__":
 
     # Lưu kết quả dự đoán
     test_data['predicted_price_range'] = y_pred
-    test_data.to_csv('test_prediction.csv', index=False)
+    test_data.to_csv('C:/Users/Admin/Documents/0TL/ml/BTL/model_prediction_result.csv', index=False)
     print("Đã dự đoán xong và lưu kết quả!")
