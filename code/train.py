@@ -1,6 +1,7 @@
 # train_ovo_svm_with_evaluation.py
 import numpy as np
 import pandas as pd
+import json 
 from itertools import combinations
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, accuracy_score
@@ -137,6 +138,19 @@ class OVOSVM:
             votes[:, class_2] += (decision <= 0).astype(int)
 
         return np.argmax(votes, axis=1)
+    
+
+
+    def export_to_json(self, file_path):
+        """Export the trained models to a JSON file."""
+        json_models = {
+            str(pair): {'weights': w.tolist(), 'bias': b}
+            for pair, (w, b) in self.models.items()
+        }
+        with open(file_path, 'w') as json_file:
+            json.dump(json_models, json_file)
+        print(f"Model exported to {file_path}")
+
 
 
 if __name__ == "__main__":
@@ -182,4 +196,6 @@ if __name__ == "__main__":
     # Lưu model
     np.save('model.npy', model.models)
     np.save('model.json', model.models)
+    model.export_to_json('model.json')
+
     print("\nĐã train xong và lưu model!")

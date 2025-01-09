@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phân Loại Giá Điện Thoại</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        button {
+            background-color: #000000;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #c54444;
+
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Phân Loại Giá Điện Thoại</h1>
+        <form id="predictionForm">
+            <!-- Nhóm nhập liệu: Pin -->
+            <div class="form-group">
+                <label for="battery_power">Dung lượng Pin (mAh):</label>
+                <input type="number" id="battery_power" name="battery_power" required>
+            </div>
+            <!-- Nhóm nhập liệu: Tốc độ xung nhịp -->
+            <div class="form-group">
+                <label for="clock_speed">Tốc độ xung nhịp (GHz):</label>
+                <input type="number" id="clock_speed" name="clock_speed" step="0.1" required>
+            </div>
+            <!-- Nhóm nhập liệu: Camera trước -->
+            <div class="form-group">
+                <label for="fc">Camera trước (MP):</label>
+                <input type="number" id="fc" name="fc" required>
+            </div>
+            <!-- Nhóm nhập liệu: Bộ nhớ trong -->
+            <div class="form-group">
+                <label for="int_memory">Bộ nhớ trong (GB):</label>
+                <input type="number" id="int_memory" name="int_memory" required>
+            </div>
+            <!-- Nhóm nhập liệu: Độ dày điện thoại -->
+            <div class="form-group">
+                <label for="m_dep">Độ dày (cm):</label>
+                <input type="number" id="m_dep" name="m_dep" step="0.1" required>
+            </div>
+            <!-- Nhóm nhập liệu: Trọng lượng điện thoại -->
+            <div class="form-group">
+                <label for="mobile_wt">Trọng lượng (g):</label>
+                <input type="number" id="mobile_wt" name="mobile_wt" required>
+            </div>
+            <!-- Nhóm nhập liệu: Số lõi CPU -->
+            <div class="form-group">
+                <label for="n_cores">Số lõi CPU:</label>
+                <input type="number" id="n_cores" name="n_cores" required>
+            </div>
+            <!-- Nhóm nhập liệu: Camera chính -->
+            <div class="form-group">
+                <label for="pc">Camera chính (MP):</label>
+                <input type="number" id="pc" name="pc" required>
+            </div>
+            <!-- Nhóm nhập liệu: Độ phân giải màn hình -->
+            <div class="form-group">
+                <label for="px_height">Độ phân giải (Chiều cao):</label>
+                <input type="number" id="px_height" name="px_height" required>
+            </div>
+            <div class="form-group">
+                <label for="px_width">Độ phân giải (Chiều rộng):</label>
+                <input type="number" id="px_width" name="px_width" required>
+            </div>
+            <!-- Nhóm nhập liệu: RAM -->
+            <div class="form-group">
+                <label for="ram">RAM (MB):</label>
+                <input type="number" id="ram" name="ram" required>
+            </div>
+            <!-- Nhóm nhập liệu: Kích thước màn hình -->
+            <div class="form-group">
+                <label for="sc_h">Chiều cao màn hình (cm):</label>
+                <input type="number" id="sc_h" name="sc_h" required>
+            </div>
+            <div class="form-group">
+                <label for="sc_w">Chiều rộng màn hình (cm):</label>
+                <input type="number" id="sc_w" name="sc_w" required>
+            </div>
+            <!-- Nhóm nhập liệu: Thời gian đàm thoại -->
+            <div class="form-group">
+                <label for="talk_time">Thời gian đàm thoại (giờ):</label>
+                <input type="number" id="talk_time" name="talk_time" required>
+            </div>
+            <!-- Các tùy chọn: Các tính năng bổ sung -->
+            <div class="form-group">
+                <label><input type="checkbox" id="blue" name="blue">Bluetooth</label>
+            </div>
+            <div class="form-group">
+                <label><input type="checkbox" id="dual_sim" name="dual_sim">SIM Kép</label>
+            </div>
+            <div class="form-group">
+                <label><input type="checkbox" id="four_g" name="four_g">4G</label>
+            </div>
+            <div class="form-group">
+                <label><input type="checkbox" id="three_g" name="three_g">3G</label>
+            </div>
+            <div class="form-group">
+                <label><input type="checkbox" id="touch_screen" name="touch_screen">Màn hình cảm ứng</label>
+            </div>
+            <div class="form-group">
+                <label><input type="checkbox" id="wifi" name="wifi">WiFi</label>
+            </div>
+            <button type="submit">Dự đoán mức giá</button>
+        </form>
+        <!-- Hiển thị kết quả dự đoán -->
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Xử lý sự kiện khi người dùng nhấn nút gửi form
+        document.getElementById('predictionForm').addEventListener('submit', (event) => {
+            event.preventDefault(); // Ngăn không cho form tải lại trang
+
+            // Thu thập giá trị từ các trường nhập liệu
+            const features = [
+                parseFloat(document.getElementById('battery_power').value),
+                document.getElementById('blue').checked ? 1 : 0,
+                parseFloat(document.getElementById('clock_speed').value),
+                document.getElementById('dual_sim').checked ? 1 : 0,
+                parseInt(document.getElementById('fc').value),
+                document.getElementById('four_g').checked ? 1 : 0,
+                parseInt(document.getElementById('int_memory').value),
+                parseFloat(document.getElementById('m_dep').value),
+                parseInt(document.getElementById('mobile_wt').value),
+                parseInt(document.getElementById('n_cores').value),
+                parseInt(document.getElementById('pc').value),
+                parseInt(document.getElementById('px_height').value),
+                parseInt(document.getElementById('px_width').value),
+                parseInt(document.getElementById('ram').value),
+                parseInt(document.getElementById('sc_h').value),
+                parseInt(document.getElementById('sc_w').value),
+                parseInt(document.getElementById('talk_time').value),
+                document.getElementById('three_g').checked ? 1 : 0,
+                document.getElementById('touch_screen').checked ? 1 : 0,
+                document.getElementById('wifi').checked ? 1 : 0
+            ];
+
+            // Gửi yêu cầu dự đoán tới backend
+            fetch('/predict', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ features })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerText = `Dự đoán: ${data.priceRange} (Độ tin cậy: ${data.confidence}%)`;
+                document.getElementById('result').style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Lỗi:', error);
+                document.getElementById('result').innerText = 'Có lỗi xảy ra khi dự đoán.';
+                document.getElementById('result').style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
