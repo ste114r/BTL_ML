@@ -1,4 +1,3 @@
-# train_ovo_svm_with_evaluation.py
 import numpy as np
 import pandas as pd
 import json 
